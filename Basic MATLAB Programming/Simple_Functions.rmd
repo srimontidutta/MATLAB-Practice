@@ -1,0 +1,43 @@
+% Write a function called tri_area that returns the area of a triangle with base b and height h, where b and h are input arguments of the function in that order.
+
+% function
+function a=tri_area(b,h)
+a=0.5*b*h;
+end
+
+% function call
+area = tri_area(5,4)
+
+
+% Write a function called corners that takes a matrix as an input argument and returns four outputs: the elements at its four corners in this order: top_left, top_right, bottom_left and bottom_right.
+
+% function
+function [top_left,top_right,bottom_left,bottom_right]=corners(M)
+top_left=M(1,1);
+top_right=M(1,end);
+bottom_left=M(end,1);
+bottom_right=M(end,end);
+end
+
+% function call
+A = randi(100,4,5)
+[top_left, top_right, bottom_left, bottom_right] = corners(A)
+B = [1; 2]
+[top_left, top_right, bottom_left, bottom_right] = corners(B)
+
+
+% Write a function called taxi_fare that computes the fare of a taxi ride. It takes two inputs: the distance in kilometers (d) and the amount of wait time in minutes (t). The fare is calculated like this: 
+% the first km is $5 
+% every additional km is $2 
+% and every minute of waiting is $0.25. 
+% Once a km is started, it counts as a whole (Hint: consider the ceil built-in function). The same rule applies to wait times. You can assume that d >0 and t >= 0 but they are not necessarily integers. The function returns the fare in dollars. For example, a 3.5-km ride with 2.25 minutes of wait costs $11.75. Note that loops and if-statements are neither necessary nor allowed.
+
+% function
+function fare=taxi_fare(d,t)
+x=ceil(d);
+y=ceil(t);
+fare=(0.25*y)+5+2*(x-1);
+end
+
+% function call
+fare = taxi_fare(3.5,2.25)
