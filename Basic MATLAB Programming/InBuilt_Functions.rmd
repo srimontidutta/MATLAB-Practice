@@ -1,0 +1,28 @@
+%% Minimum & Maximum
+% Write a function called minimax that takes M, a matrix input argument and returns mmr, a row vector containing the absolute values of the difference between the maximum and minimum valued elements in each row. As a second output argument called mmm, it provides the difference between the maximum and minimum element in the entire matrix.
+
+% function
+function [mmr,mmm]=minimax(M)
+rows_max_value=max(M');
+rows_min_value=min(M');
+mmr=rows_max_value-rows_min_value;
+mmm=max(max(M))-min(min(M));
+end
+
+% function call
+[mmr, mmm] = minimax([1:4;5:8;9:12])
+
+
+%% Matrix Construction
+% Write a function called trio that takes two positive integer inputs n and m. The function returns a 3n-by-m matrix called T. The top third of T (an n by m submatrix) is all 1s, the middle third is all 2-s while the bottom third is all 3-s.
+
+% function
+function T=trio(n, m) 
+T=randi(10,(3*n),m);
+T(1:n,:)=1;
+T((n+(1:n)),:)=2;
+T(n+(n+(1:n)):end,:)=3;
+end
+
+% function call
+T = trio(2,4)
