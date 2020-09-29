@@ -1,0 +1,11 @@
+%As of early 2018, Usain Bolt holds the world record in the men's 100-meter dash. It is 9.58 seconds. What was his average speed in km/h? Assign the result to a variable called hundred.
+%Kenyan Eliud Kipchoge set a new world record for men of 2:01:39 on September 16, 2018. Assign his average speed in km/h to the variable marathon. The marathon distance is 42.195 kilometers.
+
+bolt_dist_m=100;
+bolt_time_sec=9.58;
+bolt_kmph=(bolt_dist_m/1000)/(bolt_time_sec/3600);
+hundred=bolt_kmph
+eliud_dist_km=42.195;
+eliud_time_h=(2+1/60+39/3600);
+eliud_speed_kmph=eliud_dist_km/eliud_time_h;
+marathon=eliud_speed_kmph
