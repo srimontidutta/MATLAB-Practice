@@ -1,0 +1,30 @@
+%% Write a function called valid_date that takes three positive integer scalar inputs year, month, day. If these three represent a valid date, return a logical true, otherwise false. The name of the output argument is valid. If any of the inputs is not a positive integer scalar, return false as well. Note that every year that is exactly divisible by 4 is a leap year, except for years that are exactly divisible by 100. However, years that are exactly divisible by 400 are also leap years. For example, the year 1900 was not leap year, but the year 2000 was. Note that your solution must not contain any of the date related built-in MATLAB functions.
+
+% function
+function valid = valid_date(y, m, d)
+   if ~(isscalar(y) && isscalar(m) && isscalar(d))
+       valid = false;
+   elseif ~all([y, m, d] > 0)
+       valid = false;  
+   elseif any(rem([y, m, d], 1))
+       valid = false;
+   elseif (m > 12) || (d > 31)
+       valid = false;
+   else
+       monthdays = [31 28 31 30 31 30 31 31 30 31 30 31];
+       if isequal(rem(y, 4), 0) && (~isequal(rem(y, 100), 0) || isequal(rem(y, 400), 0))
+            monthdays(2) = 29;
+       end
+       maxdays = monthdays(m);
+       if d > maxdays
+           valid = false;
+       else
+           valid = true;
+       end
+       
+   end
+end
+
+% function call
+valid = valid_date(2018,4,1)
+valid = valid_date(2018,4,31)
